@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sonic Auto | Burlington, ON</title>
+
+  <style>
+    :root{
+      --bg:#0d1117;
+      --card:#161b22;
+      --text:#f0f6fc;
+      --muted:#8b949e;
+      --accent:#58a6ff;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      display:flex;
+      justify-content:center;
+      padding:30px 15px;
+    }
+
+    .container{
+      width:100%;
+      max-width:900px;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      padding:25px;
+      box-shadow:0 0 25px rgba(0,0,0,.35);
+    }
+
+    h1{
+      text-align:center;
+      margin-top:0;
+      font-size:42px;
+      color:var(--accent);
+    }
+
+    .subtitle{
+      text-align:center;
+      color:var(--muted);
+      margin-top:-10px;
+      margin-bottom:25px;
+    }
+
+    .map img{
+      width:100%;
+      border-radius:12px;
+      display:block;
+    }
+
+    .reviews{
+      margin-top:20px;
+      min-height:120px;
+      position:relative;
+    }
+
+    .review{
+      opacity:0;
+      transition:opacity .5s ease;
+      position:absolute;
+      width:100%;
+    }
+
+    .review.active{
+      opacity:1;
+      position:relative;
+    }
+
+    .review-text{
+      font-size:20px;
+      line-height:1.5;
+      margin-bottom:10px;
+    }
+
+    .review-author{
+      color:var(--accent);
+      font-weight:bold;
+    }
+
+    .contact{
+      margin-top:35px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .section-title{
+      font-size:20px;
+      margin-bottom:10px;
+      color:var(--accent);
+    }
+
+    .hours div{
+      margin-bottom:6px;
+    }
+
+    a{
+      color:var(--accent);
+      text-decoration:none;
+    }
+
+    @media(max-width:700px){
+      .contact{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:32px;
+      }
+
+      .review-text{
+        font-size:18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <h1>Sonic Auto</h1>
+    <div class="subtitle">
+      Honest Service • Fair Pricing • Quality Repairs
+    </div>
+
+    <div class="map">
+      <!-- Replace map-image.png with your actual image filename -->
+      <img src="map-image.png" alt="Sonic Auto Location Map">
+    </div>
+
+    <div class="reviews" id="reviews">
+
+      <div class="review active">
+        <div class="review-text">
+          “Jess and Andy are great... honest and upfront in an industry where that can be rare.”
+        </div>
+        <div class="review-author">★★★★★ — Ryan S.</div>
+      </div>
+
+      <div class="review">
+        <div class="review-text">
+          “Great spot! Honest and helpful owners and employees.”
+        </div>
+        <div class="review-author">★★★★★ — Daniel W.</div>
+      </div>
+
+      <div class="review">
+        <div class="review-text">
+          “Friendly service, honest advice, and I feel safe in my car.”
+        </div>
+        <div class="review-author">★★★★★ — Danielle R.</div>
+      </div>
+
+      <div class="review">
+        <div class="review-text">
+          “Reliable and trustworthy! A great auto service team.”
+        </div>
+        <div class="review-author">★★★★★ — Dave B.</div>
+      </div>
+
+      <div class="review">
+        <div class="review-text">
+          “Speedy repairs at a fair price every time.”
+        </div>
+        <div class="review-author">★★★★★ — Brittany M.</div>
+      </div>
+
+    </div>
+
+    <div class="contact">
+
+      <div>
+        <div class="section-title">Contact</div>
+
+        <div>
+          1439 Grahams Ln<br>
+          Burlington, ON L7S 1W5
+        </div>
+
+        <br>
+
+        <div>
+          <a href="tel:+19056338807">
+            (905) 633-8807
+          </a>
+        </div>
+
+        <br>
+
+        <div>
+          <a href="https://maps.google.com/?q=1439+Grahams+Ln+Burlington+ON">
+            Open in Google Maps
+          </a>
+        </div>
+      </div>
+
+      <div class="hours">
+        <div class="section-title">Hours</div>
+
+        <div>Monday: 8 a.m.–5 p.m.</div>
+        <div>Tuesday: 8 a.m.–5 p.m.</div>
+        <div>Wednesday: 8 a.m.–5 p.m.</div>
+        <div>Thursday: 8 a.m.–5 p.m.</div>
+        <div>Friday: 8 a.m.–5 p.m.</div>
+        <div>Saturday: Closed</div>
+        <div>Sunday: Closed</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const reviews = document.querySelectorAll('.review');
+  let current = 0;
+
+  setInterval(() => {
+    reviews[current].classList.remove('active');
+
+    current++;
+    if(current >= reviews.length){
+      current = 0;
+    }
+
+    reviews[current].classList.add('active');
+
+  }, 5000);
+</script>
+
+</body>
+</html>
